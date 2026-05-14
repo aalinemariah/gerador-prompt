@@ -1,0 +1,359 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #1a1a1a;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.app-layout {
+  display: flex;
+  flex: 1;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #6438b4 0%, #1a0f2e 100%);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid #432d61;
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.5);
+  border-radius:left 20px;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.logo-image {
+  max-width: 200px;
+  height: auto;
+  width: 100%;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.menu-item {
+  background: transparent;
+  border: none;
+  color: #e0d5f0;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.menu-item:hover {
+  background: rgba(157, 91, 210, 0.15);
+  color: #fff;
+}
+
+.menu-item:active {
+  background: rgba(157, 91, 210, 0.25);
+}
+
+.history-section {
+  margin-top: 30px;
+}
+
+.history-title {
+  color: #c9b1f1;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-item {
+  width: 100%;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f5f1ff;
+  border-radius: 10px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.history-item:hover {
+  background: rgba(157, 91, 210, 0.15);
+  border-color: rgba(157, 91, 210, 0.35);
+}
+
+.history-item:focus {
+  outline: 2px solid rgba(157, 91, 210, 0.7);
+  outline-offset: 2px;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  background: linear-gradient(135deg, #6b2fa8 0%, #4a1d7f 100%);
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 20px;
+}
+
+.content-section {
+  width: 100%;
+  max-width: 500px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.prompt-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.prompt-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #e0d5f0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.prompt-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.prompt-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.prompt-input:focus {
+  outline: none;
+  border-color: rgba(157, 91, 210, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(157, 91, 210, 0.1);
+}
+
+.generate-btn {
+  background: linear-gradient(135deg, #9d5bd2 0%, #7b3fb5 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-end;
+  box-shadow: 0 4px 15px rgba(157, 91, 210, 0.3);
+}
+
+.generate-btn:hover {
+  background: linear-gradient(135deg, #ad6be2 0%, #8b4fc5 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(157, 91, 210, 0.4);
+}
+
+.generate-btn:active {
+  transform: translateY(0);
+}
+
+/* Output Section */
+.output-container {
+  margin-top: 40px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(157, 91, 210, 0.3);
+  border-radius: 12px;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.output-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 15px;
+}
+
+.output-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #9d5bd2;
+  margin: 0;
+}
+
+.output-text {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 16px;
+  color: #e0d5f0;
+  font-size: 13px;
+  line-height: 1.6;
+  max-height: 300px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  border: 1px solid rgba(157, 91, 210, 0.2);
+}
+
+.output-text::-webkit-scrollbar {
+  width: 6px;
+}
+
+.output-text::-webkit-scrollbar-track {
+  background: rgba(157, 91, 210, 0.1);
+  border-radius: 3px;
+}
+
+.output-text::-webkit-scrollbar-thumb {
+  background: rgba(157, 91, 210, 0.4);
+  border-radius: 3px;
+}
+
+.output-text::-webkit-scrollbar-thumb:hover {
+  background: rgba(157, 91, 210, 0.6);
+}
+
+.copy-btn {
+  background: rgba(157, 91, 210, 0.2);
+  color: #9d5bd2;
+  border: 1px solid rgba(157, 91, 210, 0.5);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.copy-btn:hover {
+  background: rgba(157, 91, 210, 0.3);
+  border-color: rgba(157, 91, 210, 0.8);
+  color: #fff;
+}
+
+.copy-btn:active {
+  transform: scale(0.98);
+}
+
+.copy-btn.copied {
+  background: rgba(76, 175, 80, 0.3);
+  color: #4caf50;
+  border-color: rgba(76, 175, 80, 0.6);
+}
+
+.app-footer {
+  width: 100%;
+  padding: 5px 40px;
+  text-align: center;
+  background: rgba(110, 3, 197, 0.3);
+  color: rgba(238, 234, 234, 0.966);
+  font-size: 14px;
+  border-radius: 5%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 20px;
+    border-right: none;
+    border-bottom: 2px solid #3d2460;
+  }
+
+  .logo-section {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  .menu {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .content-section {
+    max-width: 100%;
+  }
+
+  .output-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .copy-btn {
+    width: 100%;
+  }
+}
