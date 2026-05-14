@@ -14,7 +14,7 @@ Receber entradas básicas (até mesmo vagas ou mal estruturadas)
 Transformá-las em prompts claros, objetivos e eficazes
 Evoluir progressivamente com recursos mais avançados
 
-Com o tempo, o projeto se expande para integrar APIs de IA (como OpenAI), permitindo refinamento automático e melhoria contínua dos resultados.
+
 
 ## 🎯 Objetivo
 
